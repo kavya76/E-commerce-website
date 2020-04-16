@@ -1,0 +1,147 @@
+IID,name,brand,gender,path,stock,price,color,category,cluster
+1,Fitness-Polo,Adidas,M,images/M/Tshirts/Adidas-Fitness-Polo-T-Shirt---Black.jpg,100,2099,Black,4,4
+2,Fitness-Polo,Adidas,M,images/M/Tshirts/Adidas-Fitness-Polo-T-Shirt---White.jpg,100,1199,White,4,7
+3,Golf,Adidas,M,images/M/Tshirts/Adidas-Golf-T-Shirt---Blue.jpg,100,1599,Blue,4,0
+4,Striped-Polo,Adidas,M,images/M/Tshirts/Adidas-Striped-White-Polo-T-Shirt.jpg,100,2541,White,4,6
+5,Full-Sleeve-Polo,Duke,M,images/M/Tshirts/Duke-Black-Full-Sleeve-Polo-T-Shirt.jpg,100,3001,Black,4,2
+6,Full-Sleeve-Polo,Duke,M,images/M/Tshirts/Duke-Blue-Full-Sleeve-Polo-T-Shirt.jpg,100,3099,Blue,4,2
+7,Polo,Lee,M,images/M/Tshirts/Lee-Green-Polo-T-Shirt.jpg,100,999,Green,4,7
+8,Polo,Lee,M,images/M/Tshirts/Lee-White-Polo-T-Shirt.jpg,100,1099,White,4,7
+9,Round-Neck,Levis,M,images/M/Tshirts/Levi27s-Black-Round-Neck-T-Shirt.jpg,100,2599,Black,4,6
+10,Polo,Levis,M,images/M/Tshirts/Levi27s-Blue-Polo-T-Shirt.jpg,100,2099,Blue,4,4
+11,Polo,Levis,M,images/M/Tshirts/Levi27s-Blue-Polo-T-Shirt1.jpg,100,1899,Blue,4,4
+12,Round neck,Levis,M,images/M/Tshirts/Levi27s-Blue-T-Shirts.jpg,100,1888,Blue,4,4
+13,Off,Levis,M,images/M/Tshirts/Levi27s-Off-White-T-Shirts.jpg,100,1599,White,4,0
+14,Polo,Spykar,M,images/M/Tshirts/Spykar-Blue-Polo-T-Shirt.jpg,100,1949,Blue,4,4
+15,Round-Neck,Spykar,M,images/M/Tshirts/Spykar-Blue-Round-Neck-T-Shirt.jpg,100,2049,Blue,4,4
+17,Round-Neck,Spykar,M,images/M/Tshirts/Spykar-Off-White-Round-Neck-T-Shirt.jpg,100,1599,White,4,0
+18,Regular-Fit--Milange-Polo,Spykar,M,images/M/Tshirts/Spykar-Regular-Fit-Grey-Milange-Polo-Tshirts.jpg,100,2999,Grey,4,2
+19,Short-Sleeve-Stripes--Polo,Spykar,M,images/M/Tshirts/Spykar-Short-Sleeve-Stripes-White-Polo-Tshirts.jpg,100,1515,White,4,0
+20,Fitness-Polo,Adidas,M,images/M/Tshirts/Adidas-Fitness-Polo-T-Shirt---Black.jpg,100,2099,Black,4,4
+21,Fitness-Polo,Adidas,M,images/M/Tshirts/Adidas-Fitness-Polo-T-Shirt---White.jpg,100,1199,White,4,7
+22,Golf,Adidas,M,images/M/Tshirts/Adidas-Golf-T-Shirt---Blue.jpg,100,1599,Blue,4,0
+23,Striped-Polo,Adidas,M,images/M/Tshirts/Adidas-Striped-White-Polo-T-Shirt.jpg,100,2541,White,4,6
+24,Full-Sleeve-Polo,Duke,M,images/M/Tshirts/Duke-Black-Full-Sleeve-Polo-T-Shirt.jpg,100,3001,Black,4,2
+25,Full-Sleeve-Polo,Duke,M,images/M/Tshirts/Duke-Blue-Full-Sleeve-Polo-T-Shirt.jpg,100,3099,Blue,4,2
+26,Polo,Lee,M,images/M/Tshirts/Lee-Green-Polo-T-Shirt.jpg,100,999,Green,4,7
+27,Fitness-Polo,Adidas,M,images/M/Tshirts/Adidas-Fitness-Polo-T-Shirt---Black.jpg,100,2099,Black,4,4
+28,Fitness-Polo,Adidas,M,images/M/Tshirts/Adidas-Fitness-Polo-T-Shirt---White.jpg,100,1199,White,4,7
+29,Golf,Adidas,M,images/M/Tshirts/Adidas-Golf-T-Shirt---Blue.jpg,100,1599,Blue,4,0
+30,Striped-Polo,Adidas,M,images/M/Tshirts/Adidas-Striped-White-Polo-T-Shirt.jpg,100,2541,White,4,6
+31,Full-Sleeve-Polo,Duke,M,images/M/Tshirts/Duke-Black-Full-Sleeve-Polo-T-Shirt.jpg,100,3001,Black,4,2
+32,Full-Sleeve-Polo,Duke,M,images/M/Tshirts/Duke-Blue-Full-Sleeve-Polo-T-Shirt.jpg,100,3099,Blue,4,2
+33,Polo,Lee,M,images/M/Tshirts/Lee-Green-Polo-T-Shirt.jpg,100,999,Green,4,7
+34,Arrow_tshirt01,Arrow,M,images/M/Tshirts/a.jpg,100,799,black,4,3
+35,lee_tshirt01,lee,M,images/M/Tshirts/b.jpg,100,699,red,4,3
+36,van heusen01,Van Heusen,M,images/M/Tshirts/c.jpg,100,750,min,4,3
+37,UCB_tshirt01,UCB,M,images/M/Tshirts/d.jpg,100,999,black,4,7
+38,leecooper_tshirt0112,Lee copper,M,images/M/Tshirts/e.jpeg,100,1099,black,4,7
+39,lee_tshirt0221,lee,M,images/M/Tshirts/f.jpg,100,750,grey,4,3
+40,raymond0123,raymond,M,images/M/Tshirts/g.jpg,100,850,black,4,3
+41,Arrow_tshirt025,Arrow,M,images/M/Tshirts/h.jpg,100,950,black,4,7
+42,Arrow_tshirt033,Arrow,M,images/M/Tshirts/i.jpg,100,800,blue,4,3
+43,leecopper_tshirt302,lee copper,M,images/M/Tshirts/j.jpg,100,799,grey,4,3
+44,UCB_tshirt026,UCB,M,images/M/Tshirts/k.jpg,100,699,blue,4,3
+45,Arrow_tshirt023,Arrow,M,images/M/Tshirts/l.jpg,100,800,grey,4,3
+46,Arrow_tshirt011,Arrow,F,images/F/Tshirts/a.jpg,100,799,white,4,3
+47,lee_tshirt0165,lee,F,images/F/Tshirts/b.jpg,100,699,pink,4,3
+48,van heusen0123,Van Heusen,F,images/F/Tshirts/c.jpg,100,750,black,4,3
+49,UCB_tshirt0111,UCB,F,images/F/Tshirts/d.jpg,100,999,maroon,4,7
+50,leecooper_tshirt018,Lee copper,F,images/F/Tshirts/e.jpg,100,1099,black,4,7
+51,lee_tshirt0290,lee,F,images/F/Tshirts/f.jpg,100,750,black,4,3
+52,raymond0152,raymond,F,images/F/Tshirts/g.jpg,100,850,white,4,3
+53,Arrow_tshirt9502,Arrow,F,images/F/Tshirts/h.jpg,100,950,pink,4,7
+54,lee_tshirt025,lee copper,F,images/F/Tshirts/j.jpg,100,799,blue,4,3
+55,leecopper_tshirt0252,lee copper,F,images/F/Tshirts/j.jpg,100,799,red,4,3
+56,UCB_tshirt022,UCB,F,images/F/Tshirts/k.jpg,100,699,orange,4,3
+57,Arrow_tshirt0451,Arrow,F,images/F/Jeans/a.jpg,100,1799,black,1,0
+58,lee_tshirt061,lee,F,images/F/Jeans/b.jpg,100,1699,black,1,0
+59,van heusen051,Van Heusen,F,images/F/Jeans/c.jpg,100,1750,black,1,0
+60,UCB_tshirt101,UCB,F,images/F/Jeans/d.jpg,100,1999,blue,1,4
+61,leecooper_tshirt0451,Lee copper,F,images/F/Jeans/e.jpg,100,1499,Dark blue,1,0
+62,lee_tshirt2302,lee,F,images/F/Jeans/f.jpg,100,1750,Dark blue,1,0
+63,raymond0444,raymond,F,images/F/Jeans/g.jpg,100,1850,white,1,0
+64,Arrow_tshirt02562,Arrow,F,images/F/Jeans/h.jpg,100,1950,black,1,4
+65,lee_tshirt2503,lee,F,images/F/Jeans/i.jpg,100,1799,black,1,0
+67,Arrow_tshirt0351,Arrow,M,images/M/Jeans/a.jpg,100,1799,dark blue,1,0
+68,lee_tshirt031,lee,M,images/M/Jeans/b.jpg,100,1699,dark blue,1,0
+69,van heusen054,Van Heusen,M,images/M/Jeans/c.jpg,100,1750,light blue,1,0
+70,UCB_tshirt1012,UCB,M,images/M/Jeans/d.jpg,100,1999,light blue,1,4
+71,leecooper_tshirt0351,black,M,images/M/Jeans/e.jpg,100,2099,black,1,4
+72,lee_tshirt232,lee,M,images/M/Jeans/f.jpg,100,1750,dark blue,1,0
+73,raymond0434,raymond,M,images/M/Jeans/g.jpg,100,1850,Black,1,0
+74,Arrow_tshirt562,Arrow,M,images/M/Jeans/h.jpg,100,1950,light blue,1,4
+75,leecopper_tshirt02,lee,M,images/M/Jeans/i.jpg,100,1799,black,1,0
+76,leecopper_tshirt02,black,M,images/M/Jeans/j.jpg,100,1799,red,1,0
+77,UCB_tshirt60,UCB,M,images/M/Jeans/k.jpg,100,1799,light blue,1,0
+79,Arrow_shirt0452,Arrow,F,images/F/Shirts/a.jpg,100,1799,red,3,0
+80,lee_shirt062,lee,F,images/F/Shirts/b.jpg,100,1699,blue,3,0
+81,van heusen052,Van Heusen,F,images/F/Shirts/c.jpg,100,1750,pink,3,0
+82,UCB_shirt102,UCB,F,images/F/Shirts/d.jpg,100,1999,black,3,4
+83,leecooper_shirt0452,Lee copper,F,images/F/Shirts/e.jpg,100,1499,white,3,0
+84,lee_shirt230,lee,F,images/F/Shirts/f.jpg,100,1750,blue,3,0
+85,raymond0441,raymond,F,images/F/Shirts/g.jpg,100,1850,red,3,0
+86,Arrow_shirt02561,Arrow,F,images/F/Shirts/h.jpg,100,1950,white,3,4
+87,lee_shirt2501,lee,F,images/F/Shirts/i.jpg,100,1699,pink,3,0
+88,leecopper_shirt2303,leecopper,F,images/F/Shirts/j.jpg,100,1750,pink,3,0
+89,lee_shirt0623,lee,F,images/F/Shirts/k.jpg,100,1699,orange,3,0
+90,Arrow_shirt0352,Arrow,M,images/M/Shirts/a.jpg,100,1799,black,3,0
+91,lee_shirt032,lee,M,images/M/Shirts/b.jpg,100,1699,black,3,0
+92,van heusen053,Van Heusen,M,images/M/Shirts/c.jpg,100,1750,denim blue,3,0
+93,UCB_shirt1012,UCB,M,images/M/Shirts/d.jpg,100,1999,white,3,4
+94,leecooper_shirt351,lee cooper,M,images/M/Shirts/e.jpg,100,2099,red,3,4
+95,lee_shirt23,lee,M,images/M/Shirts/f.jpg,100,1750,white,3,0
+96,raymond043,raymond,M,images/M/Shirts/g.jpg,100,1850,brown,3,0
+97,Arrow_shirt52,Arrow,M,images/M/Shirts/h.jpg,100,1950,cream,3,4
+98,lee_shirt23,lee,M,images/M/Shirts/i.jpg,100,1799,light blue,3,0
+99,leecopper_shirt022,lee cooper,M,images/M/Shirts/j.jpg,100,1799,light blue,3,0
+100,UCB_shirt602,UCB,M,images/M/Shirts/k.jpg,100,1799,light blue,3,0
+101,UCB_shirt0452,UCB,F,images/F/Kids/a.jpg,100,599,white,3,1
+102,gini n jony_shirt062,gini n jony,F,images/F/Kids/b.jpg,100,399,white,3,5
+103,palmtree052,palm tree,F,images/F/Kids/c.jpg,100,340,white,3,5
+104,UCB_shirt102,UCB,F,images/F/Kids/d.jpg,100,399,red,3,5
+105,disney0452,disney,F,images/F/Kids/e.jpg,100,499,orange,3,1
+106,UCB_shirt045,UCB,F,images/F/Kids/a.jpg,100,599,pink,3,1
+107,gini n jony_shirt065,gini n jony,F,images/F/Kids/b.jpg,100,399,pink,3,5
+108,palmtree055,palm tree,F,images/F/Kids/c.jpg,100,340,pink,3,5
+109,UCB_shirt105,UCB,F,images/F/Kids/d.jpg,100,399,black,3,5
+110,disney0455,disney,F,images/F/Kids/e.jpg,100,499,black,3,1
+111,UCB_jeans047,UCB,F,images/F/Kids/a.jpg,100,599,blue,2,1
+112,gini n jony_jeans067,gini n jony,F,images/F/Kids/b.jpg,100,799,blue,2,3
+113,palmtree057,palm tree,F,images/F/Kids/c.jpg,100,340,blue,2,5
+114,UCB_jeans107,UCB,F,images/F/Kids/d.jpg,100,399,blue,2,5
+115,disney0457,disney,F,images/F/Kids/e.jpg,100,499,blue,2,1
+116,UCB_jeans047,UCB,F,images/F/Kids/f.jpg,100,599,blue,2,1
+117,gini n jony_jeans067,gini n jony,F,images/F/Kids/g.jpg,100,399,grey,2,5
+118,palmtree057,palm tree,F,images/F/Kids/h.jpg,100,340,blue,2,5
+119,UCB_jeans107,UCB,F,images/F/Kids/i.jpg,100,399,blue,2,5
+120,UCB_jeans048,UCB,M,images/M/Kids/a.jpg,100,599,blue,2,1
+121,gini n jony_jeans068,gini n jony,M,images/M/Kids/b.jpg,100,799,white,2,3
+122,palmtree058,palm tree,M,images/M/Kids/c.jpg,100,340,red,2,5
+123,UCB_jeans108,UCB,M,images/M/Kids/d.jpg,100,399,black,2,5
+124,disney0458,disney,M,images/M/Kids/e.jpg,100,499,white,2,1
+125,UCB_jeans048,UCB,M,images/M/Kids/f.jpg,100,599,blue,2,1
+126,gini n jony_shirt068,gini n jony,M,images/M/Kids/g.jpg,100,399,white,2,5
+127,palmtree058,palm tree,M,images/M/Kids/h.jpg,100,340,blue,2,5
+128,UCB_shirt10,UCB,M,images/M/Kids/i.jpg,100,399,orange,2,5
+130,UCB_jeans068,UCB,M,images/M/Kids/a.jpg,100,599,black,2,1
+131,gini n jony_tshirt048,gini n jony,M,images/M/Kids/b.jpg,100,799,black,2,3
+132,palmtree068,palm tree,M,images/M/Kids/c.jpg,100,340,black,2,5
+133,UCB_tshirt168,UCB,M,images/M/Kids/d.jpg,100,399,black,2,5
+134,disney0468,disney,M,images/M/Kids/e.jpg,100,499,cream,2,1
+135,UCB_tshirt068,UCB,M,images/M/Kids/f.jpg,100,599,cream,2,1
+136,UCB_jeans069,UCB,M,images/M/Kids/a.jpg,100,599,black,2,1
+137,gini n jony_jeans049,gini n jony,M,images/M/Kids/b.jpg,100,799,black,2,3
+138,palmtree069,palm tree,M,images/M/Kids/c.jpg,100,340,black,2,5
+139,UCB_jeans169,UCB,M,images/M/Kids/d.jpg,100,399,cream,2,5
+140,disney0469,disney,M,images/M/Kids/e.jpg,100,499,cream,2,1
+141,UCB_shirt069,UCB,M,images/M/Kids/a.jpg,100,599,white,2,1
+142,gini n jony_shirt049,gini n jony,M,images/M/Kids/b.jpg,100,799,white,2,3
+143,palmtree069,palm tree,M,images/M/Kids/c.jpg,100,340,white,2,5
+144,UCB_shirt169,UCB,M,images/M/Kids/d.jpg,100,399,black,2,5
+145,disney0469,disney,M,images/M/Kids/e.jpg,100,499,red,2,1
+146,UCB_shirt069,UCB,M,images/M/Kids/f.jpg,100,599,white,2,1
+147,palmtree062,palm tree,M,images/M/Kids/g.jpg,100,340,white,2,5
+148,UCB_shirt162,UCB,M,images/M/Kids/h.jpg,100,399,blue,2,5
+149,disney0462,disney,M,images/M/Kids/i.jpg,100,499,white,2,1
+150,UCB_shirt062,UCB,M,images/M/Kids/j.jpg,100,599,blue,1,
