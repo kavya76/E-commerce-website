@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Category: {{categoryName}}</title>
+<link rel="stylesheet" href={{ url_for('static', filename='css/home.css') }} />
+<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
+<script>
+function init(){
+    console.log("in Init");
+    ob = new obj();
+    ob.getcategories();
+    setInterval(ob.getcategories, 120000);
+}
+
+function obj(){
+    this.getcategories = function(){
+        console.log('in getcategories');
+        ob.clearproducts();
+        console.log('Cleared');
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET','/getcategory?category={{categoryName}}',true);
+        xhr.onreadystatechange = ob.setcategories;
+        xhr.send();
+    },
+    this.setcategories = function(){
+        if(this.status==200 && this.readyState==4){
+            console.log('in setcategories');
+            if(JSON.parse(this.responseText)['msg']=='Empty'){
+            }
+            else{
+                var df = JSON.parse(this.responseText);
+                console.log(df);
+                tabl=document.getElementById('items');
+                var i1=0;
+                for(var j=0;j<Object.keys(df).length;j++){
+                    trow1=document.createElement('tr');
+                    trow1.style="text-align:center; font-weight:bold;"
+                    trow2=document.createElement('tr');
+                    trow3=document.createElement('tr');
+                    trow3.style="text-align: center;";
+                    for(i=i1;i<6;i++){
+                        data = JSON.parse(df[j]);
+                        //console.log(data);
+                        tdata1 = document.createElement('td');
+                        tdata1.innerHTML=data['name'];
+                        trow1.appendChild(tdata1);                    
+
+                        tdata2 = document.createElement('td');
+                        a1 = document.createElement('a')
+                        im = document.createElement('img');
+                        a1.href='/productDescription?productId='+data['pid'];
+                        im.src='static/uploads/'+data['path'];
+                        im.alt=data['name'];
+                        im.style="height:250px;width:200px;"
+                        a1.appendChild(im);
+                        tdata2.appendChild(a1)
+                        trow2.appendChild(tdata2);                    
+
+                        tdata3 = document.createElement('td');
+                        tdata3.innerHTML=data['price'];
+                        trow3.appendChild(tdata3);
+                        j++;
+                    }
+                    tabl.appendChild(trow1);
+                    tabl.appendChild(trow2);
+                    tabl.appendChild(trow3);
+                }
+            }
+        }
+    },
+    this.clearproducts = function(){
+        const myNode = document.getElementById("items");
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.lastChild);
+        }
+  }
+}
+</script>
+</head>
+<body onload="init()">
+<div id="title">
+	<a href="/">
+		<img id="logo" src= {{ url_for('static', filename='images/logo.png') }} />
+	</a>
+	<form>
+		<input id="searchBox" type="text" name="searchQuery">
+		<input id="searchButton" type="submit" value="Search">
+	</form>
+
+	{% if not loggedIn %}
+	<div id="signInButton">
+		<a class="link" href="/loginForm">Sign In</a>
+	</div>
+	{% else %}
+	<div class="dropdown">
+		<button class="dropbtn">Hello, <br>{{firstName}}</button>
+		<div class="dropdown-content">
+			<a href="/account/orders">Your orders</a>
+			<a href="/account/profile">Your profile</a>
+			<hr>
+			<a href="/logout">Sign Out</a>
+		</div>
+	</div>
+	{% endif %}
+	<div id="kart">
+		<a class="link" href="/cart">
+			<img src={{url_for('static', filename='images/shoppingCart.png')}} id="cartIcon" />
+			CART {{noOfItems}}
+		</a>
+	</div>
+</div>
+
+<div>
+	<h2>Showing all products of Category {{categoryName}}:</h2>
+	<table id="items">
+	</table>
+</div>
+</body>
+</html>

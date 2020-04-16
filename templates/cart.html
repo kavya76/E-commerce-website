@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Your Cart</title>
+<link rel="stylesheet" href={{url_for('static', filename='css/cart.css')}} />
+<link rel="stylesheet" href={{url_for('static', filename='css/style.css') }} />
+<link rel="stylesheet" href={{ url_for('static', filename='css/set1.css') }} />
+<link rel="stylesheet" href={{ url_for('static', filename='css/demo.css') }} />
+<link rel="stylesheet" href={{ url_for('static', filename='css/normalize.css') }} />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--<link rel="stylesheet" type="text/css" href="css/component.css">-->
+<script src="https://kit.fontawesome.com/29850fdfef.js" crossorigin="anonymous"></script>
+<style>
+.button {
+    background-color: white;
+    border-color: #555555;
+    width:95%;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.button:hover {
+    background-color: #555555;
+    color: white;
+}
+body {
+    background-image: url('https://ordinaryfaith.net/wp-content/uploads/2016/03/Gray-plain-website-background.jpg');
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#loginbtn:hover{
+    
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+header {display:block; font-size:1.2em;margin-bottom:100px;}
+    header a, header span {
+        display: inline-block;
+        padding: 4px 8px;
+        margin-right: 10px;
+        border: 2px solid #000;
+        background: #DDD;
+        color: #000;
+        text-decoration: none;
+        text-align: center;
+        height: 20px;
+    }
+    header span {background:white;}
+    a {color: #1155CC;}
+
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+footer {
+  display: block;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+	</style>
+<script>
+function init(){
+    console.log('in Init');
+    obj = new Karts();
+    obj.clearitems();
+    obj.getkart();
+    //setTimeout(init(),120000);
+}
+function Karts(){
+    this.getkart = function(){
+        console.log('in getKart')
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET','/getkart',true);
+        xhr.onreadystatechange = obj.setkart;
+        xhr.send();
+    },
+    this.setkart = function(){
+        if(this.status==200&&this.readyState==4){
+            if(JSON.parse(this.responseText)['msg']=='Empty'){
+            }
+            else{
+                console.log('in setKart');
+                var df = JSON.parse(this.responseText);
+                console.log(df);
+                tot=0
+                divi=document.getElementById('items');
+                //cart=document.getElementById('cart').innerHTML='CART '+Object.keys(df).length;
+                for(var i=0;i<Object.keys(df).length;i++){
+                    data = JSON.parse(df[i]);
+                    console.log(data);
+                    tot += parseFloat(data['price'])
+                    hr=document.createElement('hr')
+                    hr.classList.value="separator";
+                    hr.style="max-width:400px;margin:0px;"
+                    divi.appendChild(hr);
+
+                    div1 = document.createElement('div');
+                    div1.classList.value='itemImage';
+                    lin=document.createElement('img');
+                    lin.href="/productDescription?productId="+data['pid'];
+                    lin.src="static/uploads/"+data['path'];
+                    lin.classList.value='image';
+                    lin.style = "height:100px;width:80px;"
+                    div1.appendChild(lin);
+                    div1.style="margin-left: 5px;margin-right: 5px;margin-top: 5px;margin-bottom: 5px;height: 100px;float: left;"
+                    divi.appendChild(div1)
+
+                    div2=document.createElement('div');
+                    div2.classList.value="itemName";
+                    spana = document.createElement('span')
+                    spana.classList.value='itemNameTag';
+                    spana.innerHTML=data['name'];
+                    div2.appendChild(spana);
+                    br = document.createElement('br');
+                    div2.appendChild(br);
+    //                text = document.createTextNode('In Stock')
+    //                text.style="margin-left:5px;font-weight:bold;"
+    //                div2.appendChild(text);
+                    div2.appendChild(br);
+                    a2 = document.createElement('Button');
+//                    a2.href="/removeFromCart?productId="+data['pid'];
+                    a2.onclick = function(){
+                        obg = new remkart();
+                        obg.connect(data['pid']);
+                    }
+                    a2.innerHTML = 'Remove';
+                    div2.appendChild(a2);
+                    div2.style="margin-left: 5px;margin-right: 5px;margin-top: 5px;margin-bottom: 5px;height: 100px;width: 200px;float: left;"
+                    divi.appendChild(div2);
+
+                    div3 = document.createElement('div');
+                    div3.appendChild(document.createTextNode(data['price']));
+                    div3.classList.value="itemPrice";
+                    div3.style="margin-left: 5px;margin-right: 5px;margin-top: 5px;margin-bottom: 5px;height: 100px;display: inline-block;"
+                    divi.appendChild(div3);
+                }
+                document.getElementById('subtotal1').innerHTML=tot
+            }
+        }
+    },
+    this.clearitems = function(){
+        const myNode = document.getElementById("items");
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.lastChild);
+        }
+    }
+}
+function test(){
+    console.log('test');
+}
+//obg = new remkart();
+function remkart(pid){
+    this.connect=function(pid){
+        console.log('in remkart')
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET','/removekart?productId='+pid,true);
+        xhr.onreadystatechange = obg.setcart;
+        xhr.send();
+    },
+    this.setcart=function(){
+        if(this.status==200&&this.readyState==4){
+            console.log('in setkart');
+            message=JSON.parse(this.responseText);
+            console.log(message)
+            if(message['msg']=='Success'){
+                init();
+            }
+        }
+    }
+}
+
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+</head>
+<body id="body" onload="init()">
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16" onclick="window.location.replace('/')">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+      <h3 class="w3-wide class1" href="/"><b>Clotheline</b></h3>
+  </div>
+    {% if not loggedIn %}
+    <div id="login">
+        <a href="/loginForm"><button class="button" id="loginbtn" style="border-color:#555555;">Log In</button></a>
+    </div>
+    {% else %}
+    <div id="login">
+        <div class="dropdown">
+		<button class="button" style="width: 100%;border: 0px;" id="loginbtn1">Hello, {{firstName}}</button>
+		<div id="dropdown-content" style="display: block">
+            <a href="/cart" class="w3-bar-item w3-button">Your Cart</a>
+			<a href="/account/orders" class="w3-bar-item w3-button">Your orders</a>
+			<a href="/account/profile" class="w3-bar-item w3-button">Your profile</a>
+			<hr>
+			<a href="/logout" class="w3-bar-item w3-button">Sign Out</a>
+		</div>
+	</div>        
+    </div>
+    {% endif %}
+  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+    <a href="displayCategory?categoryId=3" class="w3-bar-item w3-button">Shirts</a>
+    <a href="displayCategory?categoryId=4"  class="w3-bar-item w3-button">T-Shirts</a>
+    <a href="displayCategory?categoryId=1" class="w3-bar-item w3-button" id="myBtn">Jeans</a>
+    <a href="displayCategory?categoryId=2" class="w3-bar-item w3-button">Kids</a>
+  </div>
+  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
+  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+</nav>
+<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+  <div class="w3-bar-item w3-padding-24 w3-wide" href="/">Clotheline</div>
+    <a href="/cart" class="w3-bar-item w3-button w3-padding-24 w3-right"><i class="fa fa-shopping-cart"></i></a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="main">
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:250px">
+
+  <!-- Push down content on small screens -->
+<!--  <div class="w3-hide-large" style="margin-top:83px">fgh</div>-->
+
+<br>
+<br>
+<br>
+<div id="cartItems">
+	<h2 style="color: white;">Shopping Cart</h2>
+	<div id="tableItems">
+		<div id="items">
+		</div>
+		<hr id="seperator">
+		<div id="total">
+			<span style="color: white;"  id="subtotal">Subtotal </span> <p style="color: white;">: Rs. <span id="subtotal1">0</span></p>
+		</div>
+	</div>
+</div>
+<a href="/checkout"> <button class="button" style="background-color: whitesmoke;"><h4>Proceed to checkout</h4> </button></a>
+    </div>
+    </div>
+</body>
+</html>

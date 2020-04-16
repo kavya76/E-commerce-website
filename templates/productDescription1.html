@@ -1,0 +1,390 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Product Description</title>
+<link rel="stylesheet" href={{url_for('static', filename='css/productDescription.css')}} />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" href="static/css/component.css">
+ <script src="https://kit.fontawesome.com/29850fdfef.js" crossorigin="anonymous"></script>
+<style>
+body {
+  background-image: url('https://ordinaryfaith.net/wp-content/uploads/2016/03/Gray-plain-website-background.jpg');
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+header {display:block; font-size:1.2em;margin-bottom:100px;}
+      header a, header span {
+          display: inline-block;
+          padding: 4px 8px;
+          margin-right: 10px;
+          border: 2px solid #000;
+          background: #DDD;
+          color: #000;
+          text-decoration: none;
+          text-align: center;
+          height: 20px;
+      }
+      header span {background:white;}
+  a {color: #1155CC;}
+
+
+.column {
+float: left;
+width: 25%;
+}
+
+footer {
+display: block;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+content: "";
+clear: both;
+display: table;
+}
+@media (max-width: 920px) {
+  .product-card {
+    flex: 1 21%;
+  }
+}
+.product-info {
+  margin-top: auto;
+}
+.product-image img {
+  max-width: 100%;
+}
+.product-card {
+  padding: 2%;
+  flex-grow: 1;
+  flex-basis: 16%;
+  display: flex; /* so child elements can use flexbox stuff too! */
+}
+.products {
+  display: flex;
+  flex-wrap: wrap;
+}
+#itemImage {
+	height: 200px;
+	width: 150px;
+}
+table {
+	border-spacing: 20px;
+}
+#productName {
+	text-align: center;
+	font-weight: bold;
+}
+
+#productPrice {
+	text-align: center;
+}
+div.gfg { 
+    margin:4px, 4px; 
+    padding:4px; 
+    background-color: whitesmoke; 
+    width: 100%; 
+    height: 270px; 
+    overflow-x: hidden; 
+    overflow-y: auto; 
+    text-align:justify; 
+}
+.button {
+    background-color: white;
+    border-color: #555555;
+    width:95%;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.button:hover {
+    background-color: #555555;
+    color: white;
+}
+.overlay {
+    position: absolute;
+    background: rgb(0, 0, 0);
+    background: rgba(255, 255, 255, 0.5); /* Black see-through */
+    color: #f1f1f1;
+    width: 100%;
+    height: 10%;
+    transition: .5s ease;
+    opacity:0;
+    color: black;
+    font-size: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.column:hover .overlay {
+  opacity: 0.8;
+}
+</style>
+<script>
+function init(){
+    console.log('in Init');
+    obj = new Images();
+    obj.getimages();
+    init1();
+}
+function init1(){
+    console.log('in Init1');
+    obg = new Related();
+    obg.getrelated();
+}
+function Images(){
+    this.getimages = function(){
+        console.log('in getImages')
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET','/getimages?product={{data[0]}}',true);
+        xhr.onreadystatechange = obj.setimages;
+        xhr.send();
+    },
+    this.setimages = function(){
+        if(this.status==200&&this.readyState==4){
+            console.log('in setImages');
+            var data = JSON.parse(this.responseText);
+            im = document.getElementById('productImage');
+            im.src='static/uploads/'+data['path'];
+            im.alt = data['productId'];
+        }
+    }
+}
+function Related(){
+    tries=0
+    this.getrelated = function(){
+        if(tries<10){
+            try{
+                console.log('in getRelated');
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET','/getrelated?productId={{data[0]}}', true);
+                xhr.onreadystatechange=obg.setrelated;
+                xhr.send();
+            }
+            catch{
+                console.log('tries:'+tries);
+                tries+=1;
+                obg.getrelated();
+            }
+        }
+        else{
+            document.getElementsByClassName('gfg')[0].style.display="none";
+        }
+    },
+    this.setrelated = function(){
+        if(this.readyState==4){
+            if(this.status==200){
+                console.log('in setRelated');
+                df=JSON.parse(this.responseText);
+                console.log(df);
+                sec = document.getElementById('items');
+                for(var j=0;j<Object.keys(df).length;j++){
+                    row=document.createElement('div');
+                    row.style="text-align:center; font-weight:bold;height: 250px;"
+                    row.classList.value="row"
+                    for(i=0;i<5;i++){
+                        data = JSON.parse(df[j]);
+                        console.log(data);
+                        column = document.createElement('div');
+                        a1 = document.createElement('a')
+                        im = document.createElement('img');
+                        a1.href='/productDescription?productId='+data['pid'];
+                        im.src='static/uploads/'+data['path'];
+                        im.alt=data['name'];
+                        im.style="width:100%;height:300px;"
+                        a1.appendChild(im);
+                        title = document.createElement('div');
+                        price = document.createElement('div');
+                        title.classList.value = 'overlay';
+                        price.classList.value = 'overlay';
+                        spa1 = document.createElement('span');
+                        spa2 = document.createElement('span');
+                        spa1.innerHTML = data['name'];
+                        spa2.innerHTML = data['price'];
+                        price.style="bottom: 0%;"
+                        title.appendChild(spa1);
+                        price.appendChild(spa2);
+                        title.style="top: 0%;"
+                        a1.appendChild(title);
+                        a1.appendChild(price);
+                        
+                        column.style="float: left;padding: 5px;width: 20%;position: relative;";
+                        column.classList.value="column";
+                        column.appendChild(a1);
+                        row.appendChild(column);                    
+                        j++;
+                    }
+                    sec.appendChild(row);
+                }
+            }
+            else{
+            throw new Error('Error occured');
+            }
+        }
+    }
+}
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+function addtoC(){
+    ob = new addCart();
+    ob.connect();
+}
+
+function addCart(){
+    this.connect = function(){
+        console.log('in connect');
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET',"/addToCart?productId={{request.args.get('productId')}}",true);
+        xhr.onreadystatechange = ob.setToCart;
+        xhr.send();
+    },
+    this.setToCart = function(){
+        if(this.status==200&&this.readyState==4){
+            msg=JSON.parse(this.responseText)
+            console.log(msg['msg']);
+        }
+    }
+}
+</script>
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    $(document).ready(function() {
+    $('.column').hover(function(){
+		$('.overlay',this).slideToggle('slow');
+	}, function(){
+		$('.overlay',this).slideToggle('slow');
+    });
+});
+</script>
+-->
+</head>
+<body onload="init()">
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16" onclick="window.location.replace('/')">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+      <h3 class="w3-wide class1" href="/"><b>Clotheline</b></h3>
+  </div>
+    {% if not loggedIn %}
+    <div id="login">
+        <a href="/loginForm"><button class="button" id="loginbtn" style="border-color:#555555;">Log In</button></a>
+    </div>
+    {% else %}
+    <div id="login">
+        <div class="dropdown">
+		<button class="button" style="width: 100%;border: 0px;" id="loginbtn1">Hello, {{firstName}}</button>
+		<div id="dropdown-content" style="display: block">
+            <a href="/cart" class="w3-bar-item w3-button">Your Cart</a>
+			<a href="/account/orders" class="w3-bar-item w3-button">Your orders</a>
+			<a href="/account/profile" class="w3-bar-item w3-button">Your profile</a>
+			<hr>
+			<a href="/logout" class="w3-bar-item w3-button">Sign Out</a>
+		</div>
+	</div>        
+    </div>
+    {% endif %}
+  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+    <a href="displayCategory?categoryId=3" class="w3-bar-item w3-button">Shirts</a>
+    <a href="displayCategory?categoryId=4"  class="w3-bar-item w3-button">T-Shirts</a>
+    <a href="displayCategory?categoryId=1" class="w3-bar-item w3-button" id="myBtn">Jeans</a>
+    <a href="displayCategory?categoryId=2" class="w3-bar-item w3-button">Kids</a>
+  </div>
+  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
+  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
+</nav>
+<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+  <div class="w3-bar-item w3-padding-24 w3-wide" href="/">Clotheline</div>
+    <a href="/cart" class="w3-bar-item w3-button w3-padding-24 w3-right"><i class="fa fa-shopping-cart"></i></a>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="main">
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:250px">
+
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+
+  <div id="display">
+  	<div id="productName">
+  		<h1 style="color: white;">{{data[1]}}</h1>
+  	</div>
+  	<div>
+  		<img src="" id="productImage"/>
+  	</div>
+
+  	<div id="productDescription">
+  		<h2 style="color: white;">Details</h2>
+  		<table id="descriptionTable">
+  			<tr>
+  				<td style="color: white;">Name</td>
+  				<td style="color: white;">{{data[1]}}</td>
+  			</tr>
+  			<tr>
+  				<td style="color: white;">Price</td>
+  				<td style="color: white;">${{data[2]}}</td>
+  			</tr>
+  			<tr>
+  				<td style="color: white;">Stock</td>
+  				<td style="color: white;" >{{data[5]}}</td>
+  			</tr>
+  		</table>
+  		<h2 style="color: white;">Description</h2>
+  		<p style="color: white;">{{data[3]}}</p>
+  	</div>
+  	<div id="addToCart">
+  		<a href="#"><button style="background-color: aliceblue;color: navy;border: 3px;border-radius: 2px;" onclick="addtoC()">Add to Cart<i class="fa fa-cart-arrow-down"></i></button></a>
+
+  	</div>
+  </div>
+    <h2 style="color: aliceblue">Related Items</h2>
+<div class="gfg">
+<section class="products" id="items">
+</section>
+</div>
+<br><br>
+</div>
+</div>
+</body>
+</html>
