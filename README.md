@@ -1,5 +1,5 @@
 # Shopping Cart  
-A simple E-commerce website using Flask.
+An E-commerce website using Flask with built in recommendation system.
   
 ## Dependencies ##
 1. Python3
